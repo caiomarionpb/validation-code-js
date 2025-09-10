@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Validações com JavaScript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styleVal.css" />
+</head>
+<body>
+  <form id="formDemo" novalidate>
+    <h1>Exemplo de Validações</h1>
+
+    <label>Usuário (sem caracteres especiais)
+      <input id="username" type="text" placeholder="ex.: prof_picolo" required />
+      <small id="usernameMsg" class="msg"></small>
+    </label>
+
+    <label>Senha (forte)
+      <input id="password" type="password" required />
+      <small class="hint">Min. 8, com maiúscula, minúscula, número e símbolo.</small>
+      <small id="passwordMsg" class="msg"></small>
+    </label>
+
+    <label>Confirmar senha
+      <input id="confirm" type="password" required />
+      <small id="confirmMsg" class="msg"></small>
+    </label>
+
+    <label>CPF
+      <input id="cpf" type="text" placeholder="000.000.000-00" required />
+      <small class="hint">Aceita com ou sem máscara.</small>
+      <small id="cpfMsg" class="msg"></small>
+    </label>
+
+    <label>Telefone
+      <input id="tel" type="tel" placeholder="(11) 98888-7777" required />
+      <small class="hint">Ex.: (11) 98888-7777, 9888-7777 ou 11988887777.</small>
+      <small id="telMsg" class="msg"></small>
+    </label>
+
+    <div class="grid">
+      <label>Início
+        <input id="inicio" type="date" required />
+      </label>
+      <label>Término
+        <input id="fim" type="date" required />
+      </label>
+    </div>
+    <small id="dateMsg" class="msg"></small>
+
+    <div class="actions">
+      <button type="reset">Limpar</button>
+      <button type="submit">Enviar</button>
+    </div>
+
+    <p id="globalMsg"></p>
+  </form>
+
+  <script src="scriptVal.js"></script>
+</body>
+</html>
