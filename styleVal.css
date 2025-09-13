@@ -1,112 +1,146 @@
+/* Reset básico */
 * {
   box-sizing: border-box;
-}
-
-:root {
-  font-family: system-ui, Arial, sans-serif;
-  line-height: 1.4;
-}
-
-/* Layout básico */
-body {
   margin: 0;
-  padding: 24px;
-  background: #f6f7fb;
-  display: grid;
-  place-items: start center;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Card do formulário centralizado e fluido */
+body {
+  background: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
 form {
   background: #fff;
-  padding: 16px;
+  padding: 30px 40px;
   border-radius: 12px;
-  width: 100%;                 /* ocupa a largura disponível */
-  max-width: 720px;            /* não passa disso */
-  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 450px;
 }
 
-/* Título */
 h1 {
-  margin: 0 0 16px;
-  font-size: 1.25rem;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
 }
 
-/* Cada label vira um "bloco" com quebra de linha natural */
 label {
   display: block;
-  margin: 14px 0;              /* espaço vertical entre campos */
-  font-weight: 600;
+  margin-bottom: 15px;
+  font-weight: 500;
+  color: #555;
 }
 
-/* Inputs 100% do container interno do label */
-input {
-  display: block;              /* força quebra de linha após o label */
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="date"] {
   width: 100%;
-  max-width: 100%;             /* garante que não ultrapasse o card */
-  margin-top: 6px;             /* “pula” uma linha do rótulo pro input */
-  padding: 10px;
-  border: 1px solid #cfd4e6;
+  padding: 10px 14px;
+  margin-top: 5px;
+  border: 1.5px solid #ccc;
   border-radius: 8px;
-  background: #fff;
+  font-size: 15px;
+  transition: 0.3s;
 }
 
 input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74,144,226,0.5);
   outline: none;
-  border-color: #5a78ff;
-  box-shadow: 0 0 0 3px rgba(90,120,255,.15);
 }
 
-/* Textos auxiliares */
-.hint {
-  color: #666;
+small.hint {
   display: block;
-  margin-top: 4px;
-  font-size: .9rem;
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
 }
 
-.msg {
+small.msg {
   display: block;
-  font-size: .9rem;
-  margin-top: 4px;
-}
-.msg.error { color: #b00020; }
-.msg.ok { color: #0b7a0b; }
-
-/* Grade para datas (fica lado a lado em telas médias/grandes) */
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  font-size: 13px;
+  margin-top: 3px;
 }
 
+small.msg.error {
+  color: #e74c3c; /* vermelho */
+}
 
-/* Ações (botões) */
+small.msg.ok {
+  color: #2ecc71; /* verde */
+}
+
 .actions {
   display: flex;
-  gap: 8px;
-  justify-content: flex-end;
-  margin-top: 12px;
+  justify-content: space-between;
+  margin-top: 25px;
 }
 
 button {
-  padding: 10px 14px;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
+  font-size: 15px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 button[type="submit"] {
-  background: #5a78ff;
-  color: #fff;
+  background-color: #4a90e2;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #357ABD;
 }
 
 button[type="reset"] {
-  background: #e7ebff;
-  color: #2d3a8c;
+  background-color: #ccc;
+  color: #333;
+}
+
+button[type="reset"]:hover {
+  background-color: #aaa;
+}
+
+.grid {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.grid label {
+  flex: 1;
 }
 
 #globalMsg {
-  margin-top: 12px;
+  margin-top: 20px;
+  text-align: center;
   font-weight: 600;
+}
+
+#globalMsg.error {
+  color: #e74c3c;
+}
+
+#globalMsg.ok {
+  color: #2ecc71;
+}
+
+/* Responsivo */
+@media (max-width: 500px) {
+  form {
+    padding: 25px 20px;
+  }
+
+  .grid {
+    flex-direction: column;
+  }
 }
