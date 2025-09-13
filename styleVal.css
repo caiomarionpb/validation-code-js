@@ -1,0 +1,112 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: system-ui, Arial, sans-serif;
+  line-height: 1.4;
+}
+
+/* Layout básico */
+body {
+  margin: 0;
+  padding: 24px;
+  background: #f6f7fb;
+  display: grid;
+  place-items: start center;
+}
+
+/* Card do formulário centralizado e fluido */
+form {
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  width: 100%;                 /* ocupa a largura disponível */
+  max-width: 720px;            /* não passa disso */
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+}
+
+/* Título */
+h1 {
+  margin: 0 0 16px;
+  font-size: 1.25rem;
+}
+
+/* Cada label vira um "bloco" com quebra de linha natural */
+label {
+  display: block;
+  margin: 14px 0;              /* espaço vertical entre campos */
+  font-weight: 600;
+}
+
+/* Inputs 100% do container interno do label */
+input {
+  display: block;              /* força quebra de linha após o label */
+  width: 100%;
+  max-width: 100%;             /* garante que não ultrapasse o card */
+  margin-top: 6px;             /* “pula” uma linha do rótulo pro input */
+  padding: 10px;
+  border: 1px solid #cfd4e6;
+  border-radius: 8px;
+  background: #fff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #5a78ff;
+  box-shadow: 0 0 0 3px rgba(90,120,255,.15);
+}
+
+/* Textos auxiliares */
+.hint {
+  color: #666;
+  display: block;
+  margin-top: 4px;
+  font-size: .9rem;
+}
+
+.msg {
+  display: block;
+  font-size: .9rem;
+  margin-top: 4px;
+}
+.msg.error { color: #b00020; }
+.msg.ok { color: #0b7a0b; }
+
+/* Grade para datas (fica lado a lado em telas médias/grandes) */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+/* Ações (botões) */
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background: #5a78ff;
+  color: #fff;
+}
+
+button[type="reset"] {
+  background: #e7ebff;
+  color: #2d3a8c;
+}
+
+#globalMsg {
+  margin-top: 12px;
+  font-weight: 600;
+}
