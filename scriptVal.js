@@ -1,6 +1,6 @@
-// ============================================================
+
 // ELEMENTOS DO DOM
-// ============================================================
+
 const formulario = document.getElementById("formDemo");
 const campoUsuario = document.getElementById("username");
 const campoSenha = document.getElementById("password");
@@ -18,26 +18,24 @@ const msgTelefone = document.getElementById("telMsg");
 const msgDatas = document.getElementById("dateMsg");
 const msgGlobal = document.getElementById("globalMsg");
 
-// ============================================================
 // REGEX
-// ============================================================
+
 const regexUsuario = /^[A-Za-z0-9_]{3,}$/;
 const regexSenhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
 const regexTelefone = /^(\(?\d{2}\)?\s?)?(\d{4,5})-?\d{4}$/;
 
-// ============================================================
 // HELPER DE MENSAGENS
-// ============================================================
+
 function definirMensagem(element, mensagem, estaValido = false) {
   element.textContent = mensagem || "";
-  element.classList.remove("error", "ok");
+  element.classList.remove("Error", "Ok");
   if (!mensagem) return;
-  element.classList.add(estaValido ? "ok" : "error");
+  element.classList.add(estaValido ? "Ok" : "Error");
 }
 
-// ============================================================
+
 // FUNÇÕES DE VALIDAÇÃO
-// ============================================================
+
 function validarUsuario() {
   const valor = (campoUsuario.value || "").trim();
   if (!valor) return definirMensagem(msgUsuario, "Informe o usuário."), false;
@@ -49,7 +47,7 @@ function validarUsuario() {
 function validarSenha() {
   const valor = (campoSenha.value || "").trim();
   if (!valor) return definirMensagem(msgSenha, "Informe a senha."), false;
-  if (!regexSenhaForte.test(valor)) return definirMensagem(msgSenha, "Senha fraca."), false;
+  if (!regexSenhaForte.test(valor)) return definirMensagem(msgSenha, "Senha muito fraca."), false;
   definirMensagem(msgSenha, "Senha forte.", true);
   return true;
 }
@@ -89,9 +87,9 @@ function validarDatas() {
   return true;
 }
 
-// ============================================================
+
 // SUBMIT
-// ============================================================
+
 formulario.addEventListener("submit", e => {
   e.preventDefault();
   const valido = validarUsuario() && validarSenha() && validarConfirmacaoSenha() &&
@@ -100,9 +98,9 @@ formulario.addEventListener("submit", e => {
   definirMensagem(msgGlobal, "Formulário enviado com sucesso!", true);
 });
 
-// ============================================================
+
 // VALIDAÇÃO EM TEMPO REAL
-// ============================================================
+
 campoUsuario.addEventListener("input", validarUsuario);
 campoSenha.addEventListener("input", validarSenha);
 campoConfirmacaoSenha.addEventListener("input", validarConfirmacaoSenha);
